@@ -24,12 +24,12 @@ Add it to your `.babelrc` configuration
 }
 ```
 
-After that the constants `GIT_COMMIT`, `GIT_TAG` and `GIT_LATEST_TAG` can be used in your code.
-They will be replaced by the commit hash of HEAD and the name of the "nearest"
-tag (or "unknown" if those values can't be parsed).
+After that the constants `GIT_COMMIT`, `GIT_TAG` and `GIT_RELEASE_TAG` can be used in your code.
+They will be replaced by the commit hash of HEAD, the name of the "nearest"
+tag (or "unknown" if those values can't be parsed) and the tag associated with the commit if any.
 
 ```js
-console.log(`Version: ${GIT_TAG} (${GIT_COMMIT} ${GIT_LATEST_TAG})`);
+console.log(`Version: ${GIT_TAG} (${GIT_COMMIT} ${GIT_RELEASE_TAG})`);
 ```
 
 To avoid [eslint](https://github.com/eslint/eslint) warnings just add this to
@@ -72,7 +72,7 @@ const DEFAULT_OPTIONS = {
 
   commitConstantName: "GIT_COMMIT",
   tagConstantName: "GIT_TAG",
-  latestTagConstantName: "GIT_LATEST_TAG",
+  releaseTagConstantName: "GIT_RELEASE_TAG",
 
   showDirty: false,
 
